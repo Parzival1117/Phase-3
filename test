@@ -9,6 +9,13 @@ def customer_management():
     print("B. Back")
     print("E. End")
     option = input("Please, insert a valid option (1-3, E or B): ")
+    lisst=[]
+    namep=[]
+    surnamep=[]
+    id=[]
+    adressp=[]
+    numberp=[]
+    townp=[]
 
     if option == "1":
         print("You have selected option 1")
@@ -19,6 +26,7 @@ def customer_management():
                 x = x-1
             else:
                 print("The field has to finish with the letter A")
+        id.append(ID)
         z = 0 
         while z == 0:
             x = 0
@@ -37,6 +45,7 @@ def customer_management():
                     y = 0
                 if len(name)==x:
                     z = 1
+            namep.append(name)
 
         z = 0
         while z == 0:
@@ -56,6 +65,7 @@ def customer_management():
                     y = 0
                 if len(surname) == x:
                     z = 1
+            surnamep.append(surname)
         x = 1
         while x != 0:
             adress = input("Please introduce your adress: ")
@@ -63,6 +73,7 @@ def customer_management():
                 print("The field must be 3 or more characters")
             else:
                 x = x-1
+        adressp.append(adress)
         x = 1
         while x != 0:
             number = int(input("Please introduce your number: "))
@@ -70,6 +81,7 @@ def customer_management():
                 print("The field must be positive")
             else:
                 x = x-1
+        numberp.append(number)
         x = 1
         while x != 0:
             town = input("Please introduce your town name: ")
@@ -77,8 +89,8 @@ def customer_management():
                 print("The field must be 3 or more characters")
             else:
                 x = x-1
+        townp.append(town)
         ty=int(input("How many numbers for user?" ))
-        lisst=[]
         o=0
         while o<ty:
             list=[]
