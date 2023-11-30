@@ -6,6 +6,7 @@ numberp=[]
 cityp=[]
 list_3=[]
 list_4=[]
+abcd=("0")
 def customer_management():
 
 	print("***************************************************************")
@@ -149,7 +150,11 @@ def new_customer():
 	adressp.append(adress)
 	x = 1
 	while x != 0:
-		number = int(input("Please introduce your number: "))
+		abcd=("0")
+        	while abcd== "0":
+            		number = input("Please introduce your number: ")
+            		abcd=number
+            		def number_only()
 		if number < 0:
 			print("The field must be positive")
 		else:
@@ -174,11 +179,31 @@ def new_customer():
 	print("Phone:    ", list_4)
 	
 	customer_management()
+def number_only():
+	x = 0
+	j =("0123456789")
+	y=0
+	while x < len(abcd):
+		if y < (len(abcd)+1):
+			if j[y] == abcd[x]:
+				x = x + 1
+				y = 0
+			else:
+				y = y + 1
+		else:
+			print("The field only accepts numbers")
+			x = x + len(abc)
+			abcd=("0")
+	if x==len(abcd):
+		abcd=("1")
 def phone_numbers():
 	list_4.clear()
 	o=0
 	list_2=[]
-	ty=int(input("How many phone numbers for user? " ))
+	while abcd=="0":
+    		ty=input("How many phone numbers for user? " )
+        	abcd=ty
+        	def number_only()
 	while o<ty:
 		list_1=[]
 		z = 0
@@ -197,21 +222,42 @@ def phone_numbers():
 							y = 0
 						else:
 							y = y + 1
+						else:
+							print("The field only accepts numbers")
+							x = x + 9
 					else:
-						print("The field only accepts numbers")
+						print("The field has to have 9 numbers")
 						x = x + 9
-				else:
-					print("The field has to have 9 numbers")
-					x = x + 9
-		name_phone=input("Please introduce the description of the phone number: " )
+			if len(list_2)>=1:
+				q=0
+				while q<len(list_2):
+					if phone==list_2[q][0]:
+						z=0
+						q=q+len(list_2)
+						print("You have already introduced this number, try again with a different number")
+					else:
+						q=q+1
+            
+                name_phone=input("Please introduce the description of the phone number: " )
 		list_1.append(phone)
 		list_1.append(name_phone)
-		o=o+1
-		list_2.append(list_1)
-		if len()
-
-
-
+        	o=o+1
+        	t=0
+        	q=0
+        	while t==0:
+            		if len(list_2)>=1:
+				if q<len(list_2):
+					if list_1[0]>list_2[q][0]:
+						q=q+1
+					else:
+						list_2.insert(q,list_1)  
+						t=1
+				else:
+					list_2.append(list_1)
+					t=1
+			else:
+				list_2.append(list_1)
+				t=1
 	list_3.append(list_2)
 	list_4.append(list_2)
 
