@@ -198,13 +198,15 @@ def number_only():
 		abcd=("1")
 def phone_numbers():
 	list_4.clear()
+	j =("0123456789")
 	o=0
+	abcd=("0")
 	list_2=[]
 	while abcd=="0":
     		ty=input("How many phone numbers for user? " )
         	abcd=ty
         	def number_only()
-	while o<ty:
+	while j[o]!=ty:
 		list_1=[]
 		z = 0
 		while z < 9:
@@ -212,7 +214,6 @@ def phone_numbers():
 			z = 0
 			y = 0
 			phone = input("Introduce your phone number: ")
-			j =("0123456789")
 			while x < 9:
 				if len(phone) == 9:
 					if y < 10:
