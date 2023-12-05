@@ -6,7 +6,8 @@ numberp=[]
 cityp=[]
 list_3=[]
 list_4=[]
-abcd=("0")
+list_5=[]
+list_6=["0"]
 def customer_management():
 
 	print("***************************************************************")
@@ -148,17 +149,15 @@ def new_customer():
 		else:
 			x = x-1
 	adressp.append(adress)
-	x = 1
-	while x != 0:
-		abcd=("0")
-        	while abcd== "0":
-            		number = input("Please introduce your number: ")
-            		abcd=number
-            		def number_only()
-		if number < 0:
-			print("The field must be positive")
-		else:
-			x = x-1
+	
+	list_6.clear()
+	list_6.append("0")
+	while list_6[0]=="0" :
+		list_5.clear()
+		number = input("Please introduce your number: ")
+		list_5.append(number)
+		number_only()
+		
 	numberp.append(number)
 	x = 1
 	while x != 0:
@@ -183,29 +182,35 @@ def number_only():
 	x = 0
 	j =("0123456789")
 	y=0
-	while x < len(abcd):
-		if y < (len(abcd)+1):
-			if j[y] == abcd[x]:
+	while x < len(list_5[0]):
+		if y < 10:
+			if j[y] == list_5[0][x]:
 				x = x + 1
 				y = 0
 			else:
 				y = y + 1
 		else:
-			print("The field only accepts numbers")
-			x = x + len(abc)
-			abcd=("0")
-	if x==len(abcd):
-		abcd=("1")
+			print("The field only accepts positive numbers")
+			x = x + len(list_5[0])+1
+
+			
+	if x==len(list_5[0]):
+		list_6.clear()
+		list_6.append("1")
+		list_5.clear()	
+		
 def phone_numbers():
 	list_4.clear()
 	j =("0123456789")
 	o=0
-	abcd=("0")
 	list_2=[]
-	while abcd=="0":
-    		ty=input("How many phone numbers for user? " )
-        	abcd=ty
-        	def number_only()
+	list_6.clear()
+	list_6.append("0")
+	while list_6[0]=="0" :
+		list_5.clear()
+		ty=input("How many phone numbers for user? " )
+		list_5.append(ty)
+		number_only()
 	while j[o]!=ty:
 		list_1=[]
 		z = 0
@@ -223,12 +228,12 @@ def phone_numbers():
 							y = 0
 						else:
 							y = y + 1
-						else:
-							print("The field only accepts numbers")
-							x = x + 9
 					else:
-						print("The field has to have 9 numbers")
+						print("The field only accepts numbers")
 						x = x + 9
+				else:
+					print("The field has to have 9 numbers")
+					x = x + 9
 			if len(list_2)>=1:
 				q=0
 				while q<len(list_2):
@@ -239,14 +244,14 @@ def phone_numbers():
 					else:
 						q=q+1
             
-                name_phone=input("Please introduce the description of the phone number: " )
+		name_phone=input("Please introduce the description of the phone number: " )
 		list_1.append(phone)
 		list_1.append(name_phone)
-        	o=o+1
-        	t=0
-        	q=0
-        	while t==0:
-            		if len(list_2)>=1:
+		o=o+1
+		t=0
+		q=0
+		while t==0:
+			if len(list_2)>=1:
 				if q<len(list_2):
 					if list_1[0]>list_2[q][0]:
 						q=q+1
