@@ -25,11 +25,12 @@ def number_in_string(string):
 def customer_management():
 
     print("***************************************************************")
-    print("*    *                Customer Management Menu                 *")
+    print("*                    Customer Management Menu                 *")
     print("***************************************************************")
     print("1. New Customer")
     print("2. Print Customers")
     print("3. Search Customer by ID")
+    print("4. Search Customer by telephone number")
     print("B. Back")
     print("E. End")
     option = input("Please, insert a valid option (1-3, E or B): ")
@@ -39,8 +40,8 @@ def customer_management():
         new_customer()
     elif option == "2":
         print("You have selected option 2")
-    elif option == "3":
-        if len(idp) == 0:
+    elif option == "3":  # Search customer by ID
+        if len(idp) == 0:  # There are no customers registered
             print(
                 "There are no customers registered yet. Do you want to be our first customer?")
         else:
@@ -49,7 +50,7 @@ def customer_management():
                 x = 1
                 d = 0
                 t = 0
-                while x != 0:
+                while x != 0:  # Validates that the entered ID is valid
                     custmor = input("Please, customer ID? ")
                     if custmor[-1] == "A":
                         x = x-1
@@ -89,6 +90,25 @@ def customer_management():
                             else:
                                 print("Error, invalid option")
         customer_management()
+    elif option == "4":
+        if len(list_4) == 0:
+            print(
+                "There are no customers registered yet. Do you want to be our first customer?")
+        else:
+            telephone = input("Please, customer phone number? ")
+            for i in list_3:
+                for n in i:
+                    for e in n:
+                        if e == telephone:
+                            print("ID:", idp[e])
+                            print("Name:", namep[e])
+                            print("Surname:", surnamep[e])
+                            print("Adress:", adressp[e])
+                            print("Number:", numberp[e])
+                            print("City:", cityp[e])
+                            print("Phone number:", list_3[e])
+                        else:
+                            print("Error, that customer does not exists")
 
     elif option == "E" or option == "e":
         print("You have selected to exit from the customer management menu")
@@ -141,14 +161,10 @@ def new_customer():
         else:
             x = x-1
     adressp.append(adress)
-
-    list_6.clear()
-    list_6.append("0")
-    while list_6[0] == "0":
-        list_5.clear()
-        number = input("Please introduce your number: ")
-        list_5.append(number)
-        number_only()
+    valid = False
+    while valid == False:
+        number = input("Introduce your phone:")
+        valid = number_only(number)
 
     numberp.append(number)
     x = 1
@@ -172,25 +188,13 @@ def new_customer():
     customer_management()
 
 
-def number_only():
-    x = 0
-    j = ("0123456789")
-    y = 0
-    while x < len(list_5[0]):
-        if y < 10:
-            if j[y] == list_5[0][x]:
-                x = x + 1
-                y = 0
-            else:
-                y = y + 1
+def number_only(number):
+    for e in number:
+        if e != "0" and e != "1" and e != "2" and e != "3" and e != "4" and e != "5" and e != "6" and e != "7" and e != "8" and e != "9":
+            return False
         else:
-            print("The field only accepts positive numbers")
-            x = x + len(list_5[0])+1
-
-    if x == len(list_5[0]):
-        list_6.clear()
-        list_6.append("1")
-        list_5.clear()
+            acceptable = True
+    return acceptable
 
 
 def phone_numbers():
@@ -198,39 +202,28 @@ def phone_numbers():
     j = ("0123456789")
     o = 0
     list_2 = []
-    list_6.clear()
-    list_6.append("0")
-    while list_6[0] == "0":
-        list_5.clear()
-        ty = input("How many phone numbers for user? ")
-        list_5.append(ty)
-        number_only()
+    while valid == False:
+        ty = input("Introduce your phone:")
+        valid = number_only(ty)
+
     while j[o] != ty:
         list_1 = []
         z = 0
-        while z < 9:
+        while z < 9:  # This is to validate that there is only numbers and the requirements of lenght and uniqueness are achieved
             x = 0
             z = 0
             y = 0
             phone = input("Introduce your phone number: ")
-            while x < 9:
-                if len(phone) == 9:
-                    if y < 10:
-                        if j[y] == phone[x]:
-                            x = x + 1
-                            z = z + 1
-                            y = 0
-                        else:
-                            y = y + 1
-                    else:
-                        print("The field only accepts numbers")
-                        x = x + 9
-                else:
-                    print("The field has to have 9 numbers")
-                    x = x + 9
-            if len(list_2) >= 1:
+            valid = False
+            while valid == False:  # To validadte that there are only numbers
+                phone = input("Introduce a valid phone number: ")
+                valid = number_only(phone)
+            while phone.len() != 9:  # To validate the lenght
+                phone = input("Introduce a valid phone number: ")
+
+            if len(list_2) >= 1:  # The list_2 storages the phone numbers
                 q = 0
-                while q < len(list_2):
+                while q < len(list_2):  # Validates that the phone numbers are different
                     if phone == list_2[q][0]:
                         z = 0
                         q = q+len(list_2)
@@ -242,13 +235,15 @@ def phone_numbers():
         name_phone = input(
             "Please introduce the description of the phone number: ")
         list_1.append(phone)
+        # The list_1 list is storaging the phone numbers with its respective name
         list_1.append(name_phone)
         o = o+1
         t = 0
         q = 0
         while t == 0:
             if len(list_2) >= 1:
-                if q < len(list_2):
+                if q < len(list_2):  # (The list_2 is not empty)
+                    # (To order the telephone number)
                     if list_1[0] > list_2[q][0]:
                         q = q+1
                     else:
@@ -261,7 +256,7 @@ def phone_numbers():
                 list_2.append(list_1)
                 t = 1
     list_3.append(list_2)
-    list_4.append(list_2)
+    # list_4.append(list_2)
 
 
 def management_menus(section):
