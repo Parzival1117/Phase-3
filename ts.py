@@ -25,7 +25,7 @@ def number_in_string(string):
 def customer_management():
 
     print("***************************************************************")
-    print("*                    Customer Management Menu                 *")
+    print("*    *                Customer Management Menu                 *")
     print("***************************************************************")
     print("1. New Customer")
     print("2. Print Customers")
