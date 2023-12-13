@@ -1,4 +1,4 @@
-idp=[]
+idp=[] #this variable is for 
 namep=[]
 surnamep=[]
 adressp=[]
@@ -8,6 +8,15 @@ list_3=[]
 list_4=[]
 list_5=[]
 list_6=["0"]
+def number_in_string(string):
+    numbers ="0123456789"
+    for e in numbers:
+        for y in name:
+            if e==y:
+                print("Yoy only can enter a letter")
+                return False
+            else:
+                valid = True
 def customer_management():
 
 	print("***************************************************************")
@@ -103,43 +112,16 @@ def new_customer():
 				else:
 					z=1
 	idp.append(ID)
-	z = 0
-	while z==0:
-		x = 0
-		y = 0
-		name = input("Introduce your name: ")
-		j=("0123456789")
-		while x < len(name):
-			if y < 10:
-				if j[y] == name[x]:
-					print("The field only accepts letters")
-					x=x+len(name)
-				else:
-					y = y + 1
-			else:
-				x=x+1
-				y=0
-			if len(name)==x:
-				z=1
+	valid=False
+	while valid== False:
+		name=input("Introduce your name:")
+		valid =number_in_string(name)
+
 	namep.append(name)
-	z = 0
-	while z==0:
-		x = 0
-		y = 0
-		surname = input("Introduce your surname: ")
-		j=("0123456789")
-		while x < len(surname):
-			if y < 10:
-				if j[y] == surname[x]:
-					print("The field only accepts letters")
-					x=x+len(surname)
-				else:
-					y = y + 1
-			else:
-				x=x+1
-				y=0
-			if len(surname)==x:
-				z=1
+	valid=False
+	while valid== False:
+		name=input("Introduce your surname:")
+		valid =number_in_string(surname)
 	surnamep.append(surname)
 	x = 1
 	while x != 0:
