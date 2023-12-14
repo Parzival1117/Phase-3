@@ -30,7 +30,7 @@ def customer_management():
 			print("ID:", idp[d])
 			print("Name:", namep[d])
 			print("Surname:", surnamep[d] )
-			print("Adress:", adressp[d])
+			print("Street:", adressp[d])
 			print("Number:", numberp[d])
 			print("City:", cityp[d])
 			print("Phone number:", list_3[d])
@@ -63,7 +63,7 @@ def customer_management():
 							print("ID:", idp[d])
 							print("Name:", namep[d])
 							print("Surname:", surnamep[d] )
-							print("Adress:", adressp[d])
+							print("Street:", adressp[d])
 							print("Number:", numberp[d])
 							print("City:", cityp[d])
 							print("Phone number:", list_3[d])
@@ -193,7 +193,7 @@ def new_customer():
 
 	x = 1
 	while x != 0:
-		adress = input("Please introduce your adress: ")
+		adress = input("Please introduce your street name: ")
 		if len(adress) < 3:
 			print("The field must be 3 or more characters")
 		else:
