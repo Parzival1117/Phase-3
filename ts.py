@@ -1,4 +1,4 @@
-idp = []  # this variable is for
+idp = []
 namep = []
 surnamep = []
 adressp = []
@@ -14,7 +14,7 @@ def number_in_string(string):
     for e in numbers:
         for y in string:
             if e == y:
-                print("Yoy only can enter a letter")
+                print("Introduce a valid", string + ":")
                 return False
             else:
                 acceptable = True
@@ -32,7 +32,7 @@ def customer_management():
     print("4. Search Customer by telephone number")
     print("B. Back")
     print("E. End")
-    option = input("Please, insert a valid option (1-3, E or B): ")
+    option = input("Please, insert a valid option (1-4, E or B): ")
 
     if option == "1":
         print("You have selected option 1")
@@ -96,7 +96,7 @@ def customer_management():
         else:
             telephone = input("Please, customer phone number? ")
             match = False
-            p = 0
+            p = -1
             for i in list_3:
                 p += 1
                 for n in i:
@@ -164,12 +164,14 @@ def new_customer():
         else:
             x = x-1
     adressp.append(adress)
-    valid = False
-    '''while valid == False:
-        number = input("Introduce your phone:")
-        valid = number_only(number)
-
-    numberp.append(number)'''
+    x = 1
+    while x != 0:
+        number = int(input("Please introduce your number: "))
+        if number < 0:
+            print("The number must be possitive")
+        else:
+            x -= 1
+    numberp.append(number)
     x = 1
     while x != 0:
         city = input("Please introduce your city name: ")
@@ -186,7 +188,7 @@ def new_customer():
     print("ID:       ", ID)
     print("Adress:   ", adress)
     print("City:     ", city)
-    print("Phone:    ", list_2)
+    print("Phone:    ", list_3)
 
     customer_management()
 
@@ -217,14 +219,16 @@ def phone_numbers():
             valid = number_only(phone)
 
         if len(list_2) >= 1:  # The list_2 storages the phone numbers ()
-            q = 0
-            while q < len(list_2):  # Validates that the phone numbers are different
-                if phone == list_2[q][0]:
-                    q = q+len(list_2)
-                    phone = input(
-                        "You have already introduced this number, try again with a different number: ")
-                else:
-                    q = q+1
+            cont = False
+            while cont == False:
+                for i in list_2:
+                    for n in i:
+                        if n == phone:
+                            phone = input(
+                                "You have already introduced this number, try again with a different number: ")
+                            wrong_phone = True
+                if wrong_phone == True:
+                    cont == True
 
         name_phone = input(
             "Please introduce the description of the phone number: ")
